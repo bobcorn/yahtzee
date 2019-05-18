@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AA1A30F2-05D5-4EEA-AC4D-E2C68A751E0C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Yahtzee</RootNamespace>
+    <AssemblyName>Yahtzee</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\game_icon_64x64.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\BotFactory.cs" />
+    <Compile Include="Model\Combination.cs" />
+    <Compile Include="Model\DicesFactory.cs" />
+    <Compile Include="Presenter\CreateProfilePresenter.cs" />
+    <Compile Include="Presenter\StatisticsPresenter.cs" />
+    <Compile Include="View\GameViewFactory.cs" />
+    <Compile Include="Model\HardBot.cs" />
+    <Compile Include="Model\MediumBot.cs" />
+    <Compile Include="Model\FaceCombination.cs" />
+    <Compile Include="Model\Game.cs" />
+    <Compile Include="Model\GameFactory.cs" />
+    <Compile Include="Model\IDices.cs" />
+    <Compile Include="Model\IBot.cs" />
+    <Compile Include="Model\IGame.cs" />
+    <Compile Include="Model\ITurn.cs" />
+    <Compile Include="Model\KeepEventArgs.cs" />
+    <Compile Include="Model\KindCombination.cs" />
+    <Compile Include="Model\IPlayer.cs" />
+    <Compile Include="Model\PlayerFactory.cs" />
+    <Compile Include="Model\RollEventArgs.cs" />
+    <Compile Include="Model\Scoreboard.cs" />
+    <Compile Include="Model\Statistics.cs" />
+    <Compile Include="Model\StraightCombination.cs" />
+    <Compile Include="Model\TurnFactory.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\ICommand.cs" />
+    <Compile Include="Model\EasyBot.cs" />
+    <Compile Include="Presenter\GamePresenter.cs" />
+    <Compile Include="Model\KeepDiceCommand.cs" />
+    <Compile Include="Presenter\LobbyPresenter.cs" />
+    <Compile Include="Presenter\MenuPresenter.cs" />
+    <Compile Include="Model\RollDicesCommand.cs" />
+    <Compile Include="Model\SelectCombinationCommand.cs" />
+    <Compile Include="View\CreateProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CreateProfileForm.Designer.cs">
+      <DependentUpon>CreateProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GameForm.Designer.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Dice.cs" />
+    <Compile Include="Model\Dices.cs" />
+    <Compile Include="Model\PlayerTurn.cs" />
+    <Compile Include="Model\Turn.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\IGameView.cs" />
+    <Compile Include="View\IMenuView.cs" />
+    <Compile Include="View\LobbyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LobbyForm.Designer.cs">
+      <DependentUpon>LobbyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StatisticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StatisticsForm.Designer.cs">
+      <DependentUpon>StatisticsForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\CreateProfileForm.resx">
+      <DependentUpon>CreateProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GameForm.resx">
+      <DependentUpon>GameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\LobbyForm.resx">
+      <DependentUpon>LobbyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StatisticsForm.resx">
+      <DependentUpon>StatisticsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_kept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_kept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_kept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4_kept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5_kept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6_kept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_clicked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\roll_button_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leavegame_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leavegame_button_clicked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yahtzee_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yahtzee_menu_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_button_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_button_selected_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\game_icon_64x64.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0_throws_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_throws_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_throws_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_throws_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_button_mouseover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_button_clicked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\errorSound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dicesRollSound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_clicked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_mouseover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18742594_1269216563198457_863637071_o.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\256x256_Finale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_1_mouseover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_2_mouseover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_3_mouseover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_4_mouseover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_5_mouseover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_1_kept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_2_kept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_3_kept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_4_kept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_5_kept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_6_kept.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
